@@ -29,7 +29,8 @@
     Kustomer.init(
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NTAzYmI4Zjg4MTQ3MTEwMDgzNmQ0YiIsInVzZXIiOiI1ODUwM2JiODRmYzkwMzExMDA1OWYwMzAiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjU4NTAzYmI4NGZjOTAzMTEwMDU5ZjAzMCJ9.sz8zMBfRaAL4FFLTI7QWYQwsI23-HzHOf0Pdloiy51c'
     );
-    var langOverride = $.urlParam('lang');
+    var langOverride = $.urlParam('lang') || "en";
+    var deviceOverride = $.urlParam('lang') || "1234";
     // Start the chat client
     Kustomer.start({
       new: true,
@@ -38,9 +39,9 @@
     });
     setTimeout(function() {
       Kustomer.open();
-      $("#lang_span").replaceWith($.urlParam('lang'));
-      $("#device_span").replaceWith($.urlParam('deviceid'));
-      Kustomer.describe('conversation', { custom: { countryStr: $.urlParam('lang') } });
+      $("#lang_span").replaceWith(langOverride);
+      $("#device_span").replaceWith(deviceOverride);
+      Kustomer.describe('conversation', { custom: { countryStr: deviceOverride } });
     }, 1000);
   </script>
 </head>
