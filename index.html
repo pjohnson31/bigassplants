@@ -1,6 +1,65 @@
-<center>
-  <IMG SRC="bigassplant.jpg" ALT="some text" WIDTH=400 HEIGHT=533 style="text-align:center; display:block; vertical-align: middle;">
-  <h1> Site Under Construction </h2>
-  <p> big ass plants coming your way soon </p>
-</center>
-<script>!function(a,b,c,d){a.Kustomer=c,c._q=[],c._i=[],c.init=function(a){function b(a,b){a[b]=function(){a._q.push([b].concat(Array.prototype.slice.call(arguments,0)))}}for(var d="init clear identify track start describe".split(" "),e=0;e<d.length;e++)b(c,d[e]);c._i.push(a)};var e=b.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://cdn.kustomerapp.com/cw/sdk.v1.1.min.js";var f=b.getElementsByTagName("script")[0];f.parentNode.insertBefore(e,f)}(this,document,window.Kustomer||{});
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="widget.js" data-width="200" data-height="200">
+    var test = getUrlParameter('technology');
+    console.log("test");
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    ! function(a, b, c, d) {
+      a.Kustomer = c, c._q = [], c._i = [], c.init = function(a) {
+        function b(a, b) {
+          a[b] = function() {
+            a._q.push([b].concat(Array.prototype.slice.call(arguments, 0)))
+          }
+        }
+        for (var d = "init clear open identify track start describe".split(" "), e = 0; e < d.length; e++) b(c, d[e]);
+        c._i.push(a)
+      };
+      var e = b.createElement("script");
+      e.type = "text/javascript", e.async = !0, e.src = "https://cdn.kustomerapp.com/cw/sdk.v1.1.min.js";
+      var f = b.getElementsByTagName("script")[0];
+      f.parentNode.insertBefore(e, f)
+    }(this, document, window.Kustomer || {});
+
+    // Add your API key here
+    Kustomer.init(
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NTAzYmI4Zjg4MTQ3MTEwMDgzNmQ0YiIsInVzZXIiOiI1ODUwM2JiODRmYzkwMzExMDA1OWYwMzAiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjU4NTAzYmI4NGZjOTAzMTEwMDU5ZjAzMCJ9.sz8zMBfRaAL4FFLTI7QWYQwsI23-HzHOf0Pdloiy51c'
+    );
+    var langOverride = $.urlParam('lang');
+    // Start the chat client
+    Kustomer.start({
+      new: true,
+      icon: true,
+      lang: langOverride
+    });
+    setTimeout(function() {
+      Kustomer.open();
+      $("#lang_span").replaceWith($.urlParam('lang'));
+      $("#device_span").replaceWith($.urlParam('deviceid'));
+      Kustomer.describe('conversation', { custom: { countryStr: $.urlParam('lang') } });
+    }, 1000);
+  </script>
+</head>
+
+<body class="bg_container">
+  <div class="centerbox">
+    <img src="glovo-logo.png" alt="glovo-logo" width="30%" />
+    <p class="text_in_box">
+      Thanks for contacting us! <br/><br/> To speak with our support team, please type a message in the dialog to the right.
+      <br/>
+      <div class="variables">
+        Language: <span id="lang_span">...</span>
+        <br/> DeviceId: <span id="device_span">...</span>
+      </div>
+      <p>
+  </div>
+  <div>
+  </div>
+
+</body>
+
+</html>

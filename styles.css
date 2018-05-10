@@ -1,0 +1,37 @@
+body {
+  background-color: #FFC068;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+
+.bg_container {
+  background-image: url(glovo.jpeg);
+  background-color: #FFC068;
+  background-repeat: repeat;
+  background-size: 50% auto
+}
+
+.centerbox {
+  box-shadow: rgba(0, 0, 0, 0.15) -1px 15px 33px 4px;
+  max-width: 300px;
+  background: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.text_in_box {
+  position: relative;
+  top: 20%;
+}
+
+
+.variables{
+  font-weight: bold;
+  opacity: 0.75;
+}
