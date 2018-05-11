@@ -32,6 +32,7 @@
     var langOverride = $.urlParam('lang');
     var countryOverride = $.urlParam('country');
     var orderOverride = $.urlParam('orderId');
+    var motiveOverride = $.urlParam('motive');
     // Start the chat client
     Kustomer.start({
       new: true,
@@ -42,8 +43,10 @@
       Kustomer.open();
       $("#lang_span").replaceWith(langOverride);
       $("#order_span").replaceWith(orderOverride);
+      $("#Motive_span").replaceWith(motiveOverride);
       Kustomer.describe('conversation', { custom: { countryStr: countryOverride } });
       Kustomer.describe('conversation', { custom: { orderIdStr: orderOverride } });
+      Kustomer.describe('conversation', { custom: { motiveStr: motiveOverride } });
     }, 1000);
   </script>
 </head>
@@ -57,6 +60,7 @@
       <div class="variables">
         Language: <span id="lang_span">...</span>
         <br/> OrderId: <span id="order_span">...</span>
+        <br/> Motive: <span id="Motive_span">...</span>
       </div>
       <p>
   </div>
