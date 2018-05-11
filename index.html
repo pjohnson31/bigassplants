@@ -32,7 +32,7 @@
     var langOverride = $.urlParam('lang');
     var countryOverride = $.urlParam('country');
     var orderOverride = $.urlParam('orderId');
-    var motiveOverride = $.urlParam('motive');
+    var motiveOverride = decodeURI($.urlParam('motive'));
     // Start the chat client
     Kustomer.start({
       new: true,
