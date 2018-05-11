@@ -41,7 +41,7 @@
     setTimeout(function() {
       Kustomer.open();
       $("#lang_span").replaceWith(langOverride);
-      $("#device_span").replaceWith(orderOverride);
+      $("#order_span").replaceWith(orderOverride);
       Kustomer.describe('conversation', { custom: { countryStr: countryOverride } });
       Kustomer.describe('conversation', { custom: { orderIdStr: orderOverride } });
     }, 1000);
@@ -56,7 +56,7 @@
       <br/>
       <div class="variables">
         Language: <span id="lang_span">...</span>
-        <br/> DeviceId: <span id="device_span">...</span>
+        <br/> OrderId: <span id="order_span">...</span>
       </div>
       <p>
   </div>
