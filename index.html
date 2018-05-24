@@ -3,6 +3,7 @@
 
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="widget.js" data-width="200" data-height="200">
     var test = getUrlParameter('technology');
     console.log("test");
@@ -56,11 +57,13 @@
     setTimeout(function() {
       //open the chat and add custom attributes to convo
       Kustomer.open();
+      console.log('queryParams ',queryParams);
       for (var key in queryParams) {
-        Kustomer.describe('conversation', { custom: { key: queryParams[key] } });
-
-        //remove this code before going live
-        $(".variables").append(key + ":&nbsp<b>" + queryParams[key] + "</b></br>");
+        if (key){
+          Kustomer.describe('conversation', { custom: { key: queryParams[key] } });
+          //remove this code before going live
+          $(".variables").append(key + ":&nbsp<b>" + queryParams[key] + "</b></br>");
+        }
       };
     }, 1000);
   </script>
