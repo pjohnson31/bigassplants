@@ -28,7 +28,7 @@
 
     // Add your API key here
     Kustomer.init(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NTAzYmI4Zjg4MTQ3MTEwMDgzNmQ0YiIsInVzZXIiOiI1ODUwM2JiODRmYzkwMzExMDA1OWYwMzAiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjU4NTAzYmI4NGZjOTAzMTEwMDU5ZjAzMCJ9.sz8zMBfRaAL4FFLTI7QWYQwsI23-HzHOf0Pdloiy51c'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViM2I4YzMxNGRjNzI0MDAxYjE3NmZlZCIsInVzZXIiOiI1YjNiOGMzMTQ2YjU5Njg0NGNhMDRlMWUiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjViM2I4YzMxNDZiNTk2ODQ0Y2EwNGUxZSJ9.Eke3ysZiHtMTsXT9NENBQ6tRPstzKFcc6mTKtSzqLoA'
     );
 
 
@@ -51,21 +51,24 @@
       Kustomer.start({
         new: true,
         icon: true,
+        formId:"5b3b8ca547d92b0011366511"
       });
     }
 
-    setTimeout(function() {
-      //open the chat and add custom attributes to convo
-      Kustomer.open();
-      console.log('queryParams ',queryParams);
-      for (var key in queryParams) {
-        if (key){
-          Kustomer.describe('conversation', { custom: { key: queryParams[key] } });
-          //remove this code before going live
-          $(".variables").append(key + ":&nbsp<b>" + queryParams[key] + "</b></br>");
-        }
-      };
-    }, 1000);
+    (function() {
+      setTimeout(function() {
+        //open the chat and add custom attributes to convo
+        Kustomer.open();
+        console.log('queryParams ',queryParams);
+        for (var key in queryParams) {
+          if (key){
+            Kustomer.describe('conversation', { custom: { key: queryParams[key] } });
+            //remove this code before going live
+            $(".variables").append(key + ":&nbsp<b>" + queryParams[key] + "</b></br>");
+          }
+        };
+      }, 1000);
+    })();
   </script>
 </head>
 
