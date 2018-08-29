@@ -30,6 +30,7 @@
     Kustomer.init(
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViM2I4YzMxNGRjNzI0MDAxYjE3NmZlZCIsInVzZXIiOiI1YjNiOGMzMTQ2YjU5Njg0NGNhMDRlMWUiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjViM2I4YzMxNDZiNTk2ODQ0Y2EwNGUxZSJ9.Eke3ysZiHtMTsXT9NENBQ6tRPstzKFcc6mTKtSzqLoA'
     );
+    Kustomer.describe('conversation', { custom: { isRSABool: true } });
 
 
     // get the url parameters
@@ -49,9 +50,11 @@
         form: "5b3b8ca547d92b0011366511"
       });
     } else {
+      Kustomer.removeLangOverride();
       Kustomer.start({
         new: true,
         icon: true,
+        lang: "en-us",
         form: "5b3b8ca547d92b0011366511"
       });
     }
