@@ -9,71 +9,14 @@
     console.log("test");
   </script>
   <link rel="stylesheet" href="styles.css">
-  <script>
-    ! function(a, b, c, d) {
-      a.Kustomer = c, c._q = [], c._i = [], c.init = function(a) {
-        function b(a, b) {
-          a[b] = function() {
-            a._q.push([b].concat(Array.prototype.slice.call(arguments, 0)))
-          }
-        }
-        for (var d = "init clear open identify track start describe".split(" "), e = 0; e < d.length; e++) b(c, d[e]);
-        c._i.push(a)
-      };
-      var e = b.createElement("script");
-      e.type = "text/javascript", e.async = !0, e.src = "https://cdn.kustomerapp.com/cw/sdk.v1.1.min.js";
-      var f = b.getElementsByTagName("script")[0];
-      f.parentNode.insertBefore(e, f)
-    }(this, document, window.Kustomer || {});
+<script>!function(a,b,c,d){a.Kustomer=c,c._q=[],c._i=[],c.init=function(a){function b(a,b){a[b]=function(){a._q.push([b].concat(Array.prototype.slice.call(arguments,0)))}}for(var d="init clear identify track start describe".split(" "),e=0;e<d.length;e++)b(c,d[e]);c._i.push(a)};var e=b.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://cdn.kustomerapp.com/cw/sdk.v1.1.min.js";var f=b.getElementsByTagName("script")[0];f.parentNode.insertBefore(e,f)}(this,document,window.Kustomer||{});
 
-    // Add your API key here
-    Kustomer.init(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViM2I4YzMxNGRjNzI0MDAxYjE3NmZlZCIsInVzZXIiOiI1YjNiOGMzMTQ2YjU5Njg0NGNhMDRlMWUiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjViM2I4YzMxNDZiNTk2ODQ0Y2EwNGUxZSJ9.Eke3ysZiHtMTsXT9NENBQ6tRPstzKFcc6mTKtSzqLoA'
-    );
-    Kustomer.describe('conversation', { custom: { isRSABool: true } });
+// Add your API key here
+Kustomer.init('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViODZkYWExNGRhOGUwMDAxMWMxNDA2YSIsInVzZXIiOiI1Yjg2ZGFhMTEwN2EzNjk1MmUzMWRhNjEiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjViODZkYWExMTA3YTM2OTUyZTMxZGE2MSJ9.H66heqCgZrJYq9Kf3hm94JnHqhTmoP1kcFE24NmjetE');
+Kustomer.describe('conversation', { custom: { isRSABool: true } });
 
-
-    // get the url parameters
-    var queryParams = $.getQueryParameters();
-    var langOverride = "";
-    if (queryParams.hasOwnProperty('lang')) {
-      langOverride = queryParams["lang"];
-    }
-
-    // Start the chat client with custom lang or not at all
-    if (langOverride) {
-      console.log('lang is', langOverride);
-      Kustomer.start({
-        new: true,
-        icon: true,
-        lang: langOverride,
-        form: "5b3b8ca547d92b0011366511"
-      });
-    } else {
-      Kustomer.removeLangOverride();
-      Kustomer.start({
-        new: true,
-        icon: true,
-        lang: "en-us",
-        form: "5b3b8ca547d92b0011366511"
-      });
-    }
-
-    (function() {
-      setTimeout(function() {
-        //open the chat and add custom attributes to convo
-        Kustomer.open();
-        console.log('queryParams ',queryParams);
-        for (var key in queryParams) {
-          if (key){
-            Kustomer.describe('conversation', { custom: { key: queryParams[key] } });
-            //remove this code before going live
-            $(".variables").append(key + ":&nbsp<b>" + queryParams[key] + "</b></br>");
-          }
-        };
-      }, 1000);
-    })();
-  </script>
+ // Start the chat client
+Kustomer.start();</script>
 </head>
 
 <body class="bg_container">
