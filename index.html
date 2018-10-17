@@ -8,15 +8,61 @@
     var test = getUrlParameter('technology');
     console.log("test");
   </script>
+  <script>
+    function getUrlParam(parameter, defaultvalue) {
+      var urlparameter = defaultvalue;
+      if (window.location.href.indexOf(parameter) > -1) {
+        urlparameter = getUrlVars()[parameter];
+      }
+      return urlparameter;
+    }
+    function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+  </script>
+
   <link rel="stylesheet" href="styles.css">
-<script>!function(a,b,c,d){a.Kustomer=c,c._q=[],c._i=[],c.init=function(a){function b(a,b){a[b]=function(){a._q.push([b].concat(Array.prototype.slice.call(arguments,0)))}}for(var d="init clear identify track start describe".split(" "),e=0;e<d.length;e++)b(c,d[e]);c._i.push(a)};var e=b.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://cdn.kustomerapp.com/cw/sdk.v1.1.min.js";var f=b.getElementsByTagName("script")[0];f.parentNode.insertBefore(e,f)}(this,document,window.Kustomer||{});
+  <script>
+    ! function(a, b, c, d) {
+      a.Kustomer = c, c._q = [], c._i = [], c.init = function(a) {
+        function b(a, b) {
+          a[b] = function() {
+            a._q.push([b].concat(Array.prototype.slice.call(arguments, 0)))
+          }
+        }
+        for (var d = "init clear identify track start describe".split(" "), e = 0; e < d.length; e++) b(c, d[e]);
+        c._i.push(a)
+      };
+      var e = b.createElement("script");
+      e.type = "text/javascript", e.async = !0, e.src = "https://cdn.kustomerapp.com/cw/sdk.v1.1.min.js";
+      var f = b.getElementsByTagName("script")[0];
+      f.parentNode.insertBefore(e, f)
+    }(this, document, window.Kustomer || {});
 
-// Add your API key here
-Kustomer.init('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViODZkYWExNGRhOGUwMDAxMWMxNDA2YSIsInVzZXIiOiI1Yjg2ZGFhMTEwN2EzNjk1MmUzMWRhNjEiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjViODZkYWExMTA3YTM2OTUyZTMxZGE2MSJ9.H66heqCgZrJYq9Kf3hm94JnHqhTmoP1kcFE24NmjetE');
-Kustomer.describe('conversation', { custom: { isRsaBool: true } });
+    // Add your API key here
+    Kustomer.init(
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViODZkYWExNGRhOGUwMDAxMWMxNDA2YSIsInVzZXIiOiI1Yjg2ZGFhMTEwN2EzNjk1MmUzMWRhNjEiLCJvcmciOiI1ODUwM2JiODA1OGE1MjExMDBjMzM5NjMiLCJvcmdOYW1lIjoienp6LWt1c3R5LXN3YWciLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJyb2xlcyI6WyJvcmcudHJhY2tpbmciXSwiYXVkIjoidXJuOmNvbnN1bWVyIiwiaXNzIjoidXJuOmFwaSIsInN1YiI6IjViODZkYWExMTA3YTM2OTUyZTMxZGE2MSJ9.H66heqCgZrJYq9Kf3hm94JnHqhTmoP1kcFE24NmjetE'
+    );
+    Kustomer.describe('conversation', {
+      custom: {
+        isRsaBool: true
+      }
+    });
 
- // Start the chat client
-Kustomer.start();</script>
+    // Start the chat client
+    var refUrl = getUrlParam('refUrl') || "";
+    console.log('refUrl is ',refUrl);
+    console.log('index is', refUrl.indexOf('ring.com'));
+    if (refUrl.indexOf('ring.com') == -1){
+      console.log('Not ring!');
+      Kustomer.start({ allowZoom: true });
+    }
+
+  </script>
 </head>
 
 <body class="bg_container">
