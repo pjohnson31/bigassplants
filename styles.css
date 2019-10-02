@@ -1,6 +1,7 @@
 .bg_container {
   background-image: url("plants.jpg");
     background-size: 100%;
+    z-index: -1;
 }
 
 html, body {
